@@ -9,7 +9,7 @@
 
 using namespace std;
 
-int main(){
+int way_to_long_words(){
   string palabra,last,first;
   int ciclo,i=0;
   cin>>ciclo;
@@ -29,5 +29,10 @@ int main(){
     }
     i++;
   }
+  return 0;
+}
+
+int main(){
+  way_to_long_words();
   return 0;
 }
