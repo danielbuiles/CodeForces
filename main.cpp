@@ -34,5 +34,6 @@ int way_to_long_words(){
 
 int main(){
   way_to_long_words();
+  system("pause");
   return 0;
 }
