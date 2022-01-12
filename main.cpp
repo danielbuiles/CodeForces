@@ -6,34 +6,47 @@
 #include<time.h>
 #include<vector>
 #include<string>
+#include<algorithm>
+#include<cctype>
+#include<map>
 
 using namespace std;
 
-int way_to_long_words(){
-  string palabra,last,first;
-  int ciclo,i=0;
-  cin>>ciclo;
-  while(i<ciclo){
-    cin>>palabra;
-    if(palabra.size()>10){
-      for(int i=0;i<palabra.size();i++){
-        if(i==0){
-          first=palabra[i];
-        }else if(i==palabra.size()-1){
-          last=palabra[i];
-        }
-      }
-      cout<<first<<to_string(palabra.size()-2)<<last<<endl;
-    }else{
-      cout<<palabra<<endl;
-    }
-    i++;
+void pintar(vector<int> arr){
+  cout<<"[";
+  for(int a=0;a<arr.size();a++){
+    cout<<arr[a]<<",";
   }
-  return 0;
+  cout<<"]";
 }
 
 int main(){
-  way_to_long_words();
-  system("pause");
+  vector<int> v;
+  int aux,num;
+  string b="p";
+
+  srand(time(NULL));
+
+  for(int i=0;i<=100;i++){
+    v.push_back(1+rand()%(1000-1));
+  }
+
+  for(int i=0;i<v.size();i++){
+    for(int j=0;j<v.size()-1;j++){
+      if(v[j]>v[j+1]){
+        aux=v[j+1];
+        v[j+1]=v[j];
+        v[j]=aux;
+      }
+    }
+  }
+
+  cout<<"                       NUMEROS GENERADOS ALEATORIAMENTE              \n"<<endl;
+  pintar(v);
+
+  cout<<"\n \nindixe de numero a buscar: ";cin>>num;
+
   return 0;
 }
+
+
